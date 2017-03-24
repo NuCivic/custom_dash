@@ -27,10 +27,6 @@
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.12.1"
   },
-  "dependencies": {
-    "d3": "^4.7.3",
-    "lodash": "^4.17.4",
-    "react-dash": "^0.5.5"
-  },
+  "dependencies": {},
   "peerDependencies": {}
 }

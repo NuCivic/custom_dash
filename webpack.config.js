@@ -15,16 +15,25 @@ fs.readdirSync('node_modules')
 
 module.exports = {
   entry: [
-    './index.js',
+    './js/dataHandlers.js',
+    './js/stateHandlers.js',
+    './js/devSettings.js'
   ],
   output: {
-    path: __dirname,
+    path: path.join(__dirname, 'js'),
     filename: 'customDash.js',
     libraryTarget: 'umd'
   },
   plugins: [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false
+      },
+      output: { comments: false },
+      mangle: true
+    }),
   ],
   module: {
     loaders: [
@@ -33,7 +42,7 @@ module.exports = {
         loaders: ['babel-loader'],
         exclude: ['customDash.js'],
         include: [
-          path.join(__dirname),
+          path.join(__dirname, 'js'),
         ]
       }
     ]

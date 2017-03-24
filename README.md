@@ -1,15 +1,51 @@
-# GBPW Custom Dash Implementation
-This directory does not contain a Drupal module, but it contains the custom assets required to build the GBPW Dashboard using the 0.5.x branch of DKAN_DASH.
+### Setup
+We use babel / webpack / npm to manage js dependencies.
+Install node etc.
 
-To initialize the project run:
-`npm init`
+run:
+`npm install`
+to install required dependencies
 
-To compile the code
-`npm run build`
+run `npm run build`
+to compile code
 
-# Files
-*custom.css*
-Needs to be something here, even if it is empty, so the app doesn't error when it can't find this
+### Custom data handlers
+To create custom data handlers you need to create a dataHandlers.js file within the js folder and populate the `Drupal.settings.dkanDash.dataHandlers` global with the handlers you want to create.
 
-*dataHandlers.js*
-Same as above. There is an example in the repository. Implementations will contain domain specific logic.
+```javascript
+Drupal.settings.dkanDash.dataHandlers = {
+    handler1: function() {
+        //stuff
+    },
+    handler2: function() {
+        //stuff
+    },    
+}
+```
+
+### Custom state handlers
+State handlers work largely in the same way as data handlers but they are called later in the component lifecycle. They allow you to update the component state based on the update data. See react-dash docs.
+
+### devSettings
+Use dev settings to stub the settings objecct during development. Settings object should be keyed to the dashboard entity path in the following way:
+If you have two dashboard paths:
+`/dashboard/foo`
+`/dashboard/bar`
+
+Provide devSettings js should look like:
+
+```javascript
+{
+  dashboard__foo: {
+    // .. all dash settings go here
+  },
+  dashboard__bar: {
+    // settings for second dash here
+  }
+}
+```
+If present, these settings will be used instead of the json stored in the dashboard entity.
+
+
+### Custom CSS
+To create custom css create file called `custom.css` inside the css folder.
