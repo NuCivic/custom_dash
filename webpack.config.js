@@ -15,9 +15,7 @@ fs.readdirSync('node_modules')
 
 module.exports = {
   entry: [
-    './js/dataHandlers.js',
-    './js/stateHandlers.js',
-    './js/devSettings.js'
+    './js/src/index.js'
   ],
   output: {
     path: path.join(__dirname, 'js'),

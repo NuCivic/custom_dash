@@ -1,13 +1,15 @@
 ### Setup
-We use babel / webpack / npm to manage js dependencies.
+We use babel / webpack / yarn to manage js dependencies.
 Install node etc.
 
-run:
-`npm install`
+run: `yarn install`
 to install required dependencies
 
-run `npm run build`
+run `yarn build`
 to compile code
+
+run `yarn run dev`
+to develop in 'watch' mode - saving files should trigger rebuild
 
 ### Custom data handlers
 To create custom data handlers you need to create a dataHandlers.js file within the js folder and populate the `Drupal.settings.dkanDash.dataHandlers` global with the handlers you want to create.
@@ -46,6 +48,8 @@ Provide devSettings js should look like:
 ```
 If present, these settings will be used instead of the json stored in the dashboard entity.
 
+### index.js
+Include all of your source files in index.js so that webpack can find them.
 
 ### Custom CSS
 To create custom css create file called `custom.css` inside the css folder.
