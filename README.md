@@ -53,3 +53,22 @@ Include all of your source files in index.js so that webpack can find them.
 
 ### Custom CSS
 To create custom css create file called `custom.css` inside the css folder.
+
+## Development
+
+## Normal workflow
+```
+> yarn
+> npm run dev
+```
+
+## Extended workflow
+The extended workflow includes changes in react-dash library. Sometimes it's useful to work with dkan_dash and react-dash at the same time. For such cases you might want to compile react-dash, copy the files to dkan_dash and then compile dkan_dash. 
+However this is not very straight forward so dkan_dash build grab from the environment variable REACT_DASH_PATH the path to the react-dash library in order to do this process automatically.
+
+```
+> yarn
+> export REACT_DASH_PATH=/path/to/react-dash
+> export DKAN_DASH_PATH=/path/to/dkan_dash
+> yarn run dev
+```
